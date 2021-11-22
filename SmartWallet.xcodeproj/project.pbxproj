@@ -13,9 +13,6 @@
 		9E7C53BE274C32E500090E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53BC274C32E500090E61 /* Main.storyboard */; };
 		9E7C53C0274C32E600090E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53BF274C32E600090E61 /* Assets.xcassets */; };
 		9E7C53C3274C32E600090E61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53C1274C32E600090E61 /* LaunchScreen.storyboard */; };
-		9E7C53CE274C32E600090E61 /* SmartWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53CD274C32E600090E61 /* SmartWalletTests.swift */; };
-		9E7C53D8274C32E600090E61 /* SmartWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53D7274C32E600090E61 /* SmartWalletUITests.swift */; };
-		9E7C53DA274C32E600090E61 /* SmartWalletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53D9274C32E600090E61 /* SmartWalletUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +42,7 @@
 		9E7C53C2274C32E600090E61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E7C53C4274C32E600090E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7C53C9274C32E600090E61 /* SmartWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E7C53CD274C32E600090E61 /* SmartWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWalletTests.swift; sourceTree = "<group>"; };
 		9E7C53D3274C32E600090E61 /* SmartWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E7C53D7274C32E600090E61 /* SmartWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWalletUITests.swift; sourceTree = "<group>"; };
-		9E7C53D9274C32E600090E61 /* SmartWalletUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWalletUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				9E7C53B5274C32E500090E61 /* SmartWallet */,
-				9E7C53CC274C32E600090E61 /* SmartWalletTests */,
-				9E7C53D6274C32E600090E61 /* SmartWalletUITests */,
 				9E7C53B4274C32E500090E61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,23 +100,6 @@
 				9E7C53C4274C32E600090E61 /* Info.plist */,
 			);
 			path = SmartWallet;
-			sourceTree = "<group>";
-		};
-		9E7C53CC274C32E600090E61 /* SmartWalletTests */ = {
-			isa = PBXGroup;
-			children = (
-				9E7C53CD274C32E600090E61 /* SmartWalletTests.swift */,
-			);
-			path = SmartWalletTests;
-			sourceTree = "<group>";
-		};
-		9E7C53D6274C32E600090E61 /* SmartWalletUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9E7C53D7274C32E600090E61 /* SmartWalletUITests.swift */,
-				9E7C53D9274C32E600090E61 /* SmartWalletUITestsLaunchTests.swift */,
-			);
-			path = SmartWalletUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E7C53CE274C32E600090E61 /* SmartWalletTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E7C53D8274C32E600090E61 /* SmartWalletUITests.swift in Sources */,
-				9E7C53DA274C32E600090E61 /* SmartWalletUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
