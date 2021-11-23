@@ -9,10 +9,17 @@
 /* Begin PBXBuildFile section */
 		9E7C53B7274C32E500090E61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53B6274C32E500090E61 /* AppDelegate.swift */; };
 		9E7C53B9274C32E500090E61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53B8274C32E500090E61 /* SceneDelegate.swift */; };
-		9E7C53BB274C32E500090E61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53BA274C32E500090E61 /* ViewController.swift */; };
 		9E7C53BE274C32E500090E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53BC274C32E500090E61 /* Main.storyboard */; };
 		9E7C53C0274C32E600090E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53BF274C32E600090E61 /* Assets.xcassets */; };
 		9E7C53C3274C32E600090E61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53C1274C32E600090E61 /* LaunchScreen.storyboard */; };
+		9E7C53E8274C791900090E61 /* PurchasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53E7274C791900090E61 /* PurchasesView.swift */; };
+		9E7C53EA274C792500090E61 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53E9274C792500090E61 /* StatsView.swift */; };
+		9E7C53EC274C793100090E61 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53EB274C793100090E61 /* SettingsView.swift */; };
+		9E7C53EE274C7A0300090E61 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53ED274C7A0300090E61 /* StartView.swift */; };
+		9E7C53F3274C801600090E61 /* SQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53F2274C801600090E61 /* SQLManager.swift */; };
+		9E7C53F7274C808100090E61 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53F6274C808100090E61 /* PurchaseCell.swift */; };
+		9E7C53F9274C80C400090E61 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53F8274C80C400090E61 /* UserManager.swift */; };
+		9E7C53FB274C80DA00090E61 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53FA274C80DA00090E61 /* PurchaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +43,20 @@
 		9E7C53B3274C32E500090E61 /* SmartWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7C53B6274C32E500090E61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E7C53B8274C32E500090E61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9E7C53BA274C32E500090E61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E7C53BD274C32E500090E61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E7C53BF274C32E600090E61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E7C53C2274C32E600090E61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E7C53C4274C32E600090E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7C53C9274C32E600090E61 /* SmartWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7C53D3274C32E600090E61 /* SmartWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7C53E7274C791900090E61 /* PurchasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesView.swift; sourceTree = "<group>"; };
+		9E7C53E9274C792500090E61 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		9E7C53EB274C793100090E61 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9E7C53ED274C7A0300090E61 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		9E7C53F2274C801600090E61 /* SQLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLManager.swift; sourceTree = "<group>"; };
+		9E7C53F6274C808100090E61 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
+		9E7C53F8274C80C400090E61 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		9E7C53FA274C80DA00090E61 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +87,9 @@
 		9E7C53AA274C32E500090E61 = {
 			isa = PBXGroup;
 			children = (
+				9E7C53E6274C78EC00090E61 /* ViewControllers */,
+				9E7C53F1274C7FC100090E61 /* Model */,
+				9E7C53F0274C7FB200090E61 /* Controller */,
 				9E7C53B5274C32E500090E61 /* SmartWallet */,
 				9E7C53B4274C32E500090E61 /* Products */,
 			);
@@ -93,13 +110,41 @@
 			children = (
 				9E7C53B6274C32E500090E61 /* AppDelegate.swift */,
 				9E7C53B8274C32E500090E61 /* SceneDelegate.swift */,
-				9E7C53BA274C32E500090E61 /* ViewController.swift */,
 				9E7C53BC274C32E500090E61 /* Main.storyboard */,
 				9E7C53BF274C32E600090E61 /* Assets.xcassets */,
 				9E7C53C1274C32E600090E61 /* LaunchScreen.storyboard */,
 				9E7C53C4274C32E600090E61 /* Info.plist */,
 			);
 			path = SmartWallet;
+			sourceTree = "<group>";
+		};
+		9E7C53E6274C78EC00090E61 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E7C53E7274C791900090E61 /* PurchasesView.swift */,
+				9E7C53E9274C792500090E61 /* StatsView.swift */,
+				9E7C53EB274C793100090E61 /* SettingsView.swift */,
+				9E7C53ED274C7A0300090E61 /* StartView.swift */,
+				9E7C53F6274C808100090E61 /* PurchaseCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9E7C53F0274C7FB200090E61 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E7C53F8274C80C400090E61 /* UserManager.swift */,
+				9E7C53FA274C80DA00090E61 /* PurchaseManager.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9E7C53F1274C7FC100090E61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E7C53F2274C801600090E61 /* SQLManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +278,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E7C53BB274C32E500090E61 /* ViewController.swift in Sources */,
+				9E7C53F9274C80C400090E61 /* UserManager.swift in Sources */,
+				9E7C53F7274C808100090E61 /* PurchaseCell.swift in Sources */,
+				9E7C53F3274C801600090E61 /* SQLManager.swift in Sources */,
+				9E7C53EC274C793100090E61 /* SettingsView.swift in Sources */,
+				9E7C53FB274C80DA00090E61 /* PurchaseManager.swift in Sources */,
+				9E7C53EA274C792500090E61 /* StatsView.swift in Sources */,
+				9E7C53E8274C791900090E61 /* PurchasesView.swift in Sources */,
+				9E7C53EE274C7A0300090E61 /* StartView.swift in Sources */,
 				9E7C53B7274C32E500090E61 /* AppDelegate.swift in Sources */,
 				9E7C53B9274C32E500090E61 /* SceneDelegate.swift in Sources */,
 			);

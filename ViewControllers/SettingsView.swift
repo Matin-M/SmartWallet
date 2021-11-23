@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  SettingsView.swift
 //  SmartWallet
 //
 //  Created by Matin Massoudi on 11/22/21.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class SettingsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        overrideUserInterfaceStyle = .dark
     }
-
-
+    
 }
-
