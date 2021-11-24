@@ -49,12 +49,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nej-wu-fdY">
+                                <rect key="frame" x="155" y="563" width="104" height="58"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Login" subtitle="" cornerStyle="large">
+                                    <backgroundConfiguration key="background" strokeWidth="5">
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cX6-DW-pLE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7yO-Mr-vf5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="3vs-8d-OR1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W9I-rT-Dzp" secondAttribute="trailing" constant="150" id="7NE-YE-IBw"/>
+                            <constraint firstItem="nej-wu-fdY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="155" id="CKx-AH-QSv"/>
                             <constraint firstItem="v3h-ai-N0q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="FSv-72-hfH"/>
                             <constraint firstItem="7yO-Mr-vf5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="117" id="HI6-s4-pSr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v3h-ai-N0q" secondAttribute="trailing" constant="110" id="Lop-dO-yvr"/>
@@ -70,10 +86,17 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v3h-ai-N0q" secondAttribute="bottom" constant="252" id="bsp-fO-11o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7yO-Mr-vf5" secondAttribute="bottom" constant="559" id="hUe-3A-rwX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WId-ZM-Wr0" secondAttribute="trailing" constant="120" id="kqz-Pj-Auf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nej-wu-fdY" secondAttribute="trailing" constant="155" id="lli-eU-p2a"/>
+                            <constraint firstItem="nej-wu-fdY" firstAttribute="top" secondItem="v3h-ai-N0q" secondAttribute="bottom" constant="79" id="lmh-RB-efT"/>
                             <constraint firstItem="eFV-sW-n5t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="mKa-No-47y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nej-wu-fdY" secondAttribute="bottom" constant="115" id="q3b-3q-Bwd"/>
                             <constraint firstItem="iTN-l4-GVW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="zj0-Hl-6Sa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="v3h-ai-N0q" id="tkP-te-0ti"/>
+                        <outlet property="usernameField" destination="eFV-sW-n5t" id="SRs-Yh-umj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -299,5 +322,8 @@
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
