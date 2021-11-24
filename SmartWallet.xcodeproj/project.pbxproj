@@ -21,6 +21,7 @@
 		9E7C53F9274C80C400090E61 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53F8274C80C400090E61 /* UserManager.swift */; };
 		9E7C53FB274C80DA00090E61 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53FA274C80DA00090E61 /* PurchaseManager.swift */; };
 		9E7C53FD274CA64000090E61 /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53FC274CA64000090E61 /* PurchaseItem.swift */; };
+		9E7C53FF274DD4EC00090E61 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53FE274DD4EC00090E61 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9E7C53F8274C80C400090E61 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		9E7C53FA274C80DA00090E61 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		9E7C53FC274CA64000090E61 /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
+		9E7C53FE274DD4EC00090E61 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				9E7C53EB274C793100090E61 /* SettingsView.swift */,
 				9E7C53ED274C7A0300090E61 /* StartView.swift */,
 				9E7C53F6274C808100090E61 /* PurchaseCell.swift */,
+				9E7C53FE274DD4EC00090E61 /* TabBarView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				9E7C53E8274C791900090E61 /* PurchasesView.swift in Sources */,
 				9E7C53EE274C7A0300090E61 /* StartView.swift in Sources */,
 				9E7C53B7274C32E500090E61 /* AppDelegate.swift in Sources */,
+				9E7C53FF274DD4EC00090E61 /* TabBarView.swift in Sources */,
 				9E7C53B9274C32E500090E61 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

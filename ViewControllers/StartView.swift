@@ -9,9 +9,19 @@ import Foundation
 import UIKit
 
 class StartView: UIViewController {
+    
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .dark
     }
+    
+    @IBAction func loginButton(_ sender: Any) {
+        //Validate login informatin, then toggle segue. 
+        performSegue(withIdentifier: "login", sender: nil)
+    }
+    
     
 }
