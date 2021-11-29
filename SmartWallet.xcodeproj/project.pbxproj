@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		26692D9F27537EFD005E8888 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692D9E27537EFD005E8888 /* AccountsView.swift */; };
-		26692DA127537F50005E8888 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DA027537F50005E8888 /* AccountView.swift */; };
-		26692DA327537F89005E8888 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DA227537F89005E8888 /* PurchaseView.swift */; };
+		26692DA5275444A3005E8888 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DA4275444A3005E8888 /* AccountCell.swift */; };
+		26692DA72754458D005E8888 /* AccountItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DA62754458D005E8888 /* AccountItem.swift */; };
+		26692DA9275445A0005E8888 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DA8275445A0005E8888 /* AccountManager.swift */; };
+		26692DAB27545668005E8888 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DAA27545668005E8888 /* AccountView.swift */; };
+		26692DAD27546DD0005E8888 /* AccPurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DAC27546DD0005E8888 /* AccPurchaseCell.swift */; };
+		26692DAF27546DF9005E8888 /* AccPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DAE27546DF9005E8888 /* AccPurchaseManager.swift */; };
+		26692DB227546E1B005E8888 /* AccPurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DB127546E1B005E8888 /* AccPurchaseItem.swift */; };
 		9E7C53B7274C32E500090E61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53B6274C32E500090E61 /* AppDelegate.swift */; };
 		9E7C53B9274C32E500090E61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C53B8274C32E500090E61 /* SceneDelegate.swift */; };
 		9E7C53BE274C32E500090E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7C53BC274C32E500090E61 /* Main.storyboard */; };
@@ -46,8 +51,13 @@
 
 /* Begin PBXFileReference section */
 		26692D9E27537EFD005E8888 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
-		26692DA027537F50005E8888 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		26692DA227537F89005E8888 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
+		26692DA4275444A3005E8888 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		26692DA62754458D005E8888 /* AccountItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountItem.swift; sourceTree = "<group>"; };
+		26692DA8275445A0005E8888 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		26692DAA27545668005E8888 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		26692DAC27546DD0005E8888 /* AccPurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccPurchaseCell.swift; sourceTree = "<group>"; };
+		26692DAE27546DF9005E8888 /* AccPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccPurchaseManager.swift; sourceTree = "<group>"; };
+		26692DB127546E1B005E8888 /* AccPurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccPurchaseItem.swift; sourceTree = "<group>"; };
 		9E7C53B3274C32E500090E61 /* SmartWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7C53B6274C32E500090E61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E7C53B8274C32E500090E61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,8 +148,9 @@
 				9E7C53F6274C808100090E61 /* PurchaseCell.swift */,
 				9E7C53FE274DD4EC00090E61 /* TabBarView.swift */,
 				26692D9E27537EFD005E8888 /* AccountsView.swift */,
-				26692DA027537F50005E8888 /* AccountView.swift */,
-				26692DA227537F89005E8888 /* PurchaseView.swift */,
+				26692DA4275444A3005E8888 /* AccountCell.swift */,
+				26692DAA27545668005E8888 /* AccountView.swift */,
+				26692DAC27546DD0005E8888 /* AccPurchaseCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -150,6 +161,10 @@
 				9E7C53F8274C80C400090E61 /* UserManager.swift */,
 				9E7C53FA274C80DA00090E61 /* PurchaseManager.swift */,
 				9E7C53FC274CA64000090E61 /* PurchaseItem.swift */,
+				26692DA62754458D005E8888 /* AccountItem.swift */,
+				26692DA8275445A0005E8888 /* AccountManager.swift */,
+				26692DAE27546DF9005E8888 /* AccPurchaseManager.swift */,
+				26692DB127546E1B005E8888 /* AccPurchaseItem.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,17 +310,22 @@
 			files = (
 				9E7C53FD274CA64000090E61 /* PurchaseItem.swift in Sources */,
 				9E7C53F9274C80C400090E61 /* UserManager.swift in Sources */,
+				26692DAD27546DD0005E8888 /* AccPurchaseCell.swift in Sources */,
 				9E7C53F7274C808100090E61 /* PurchaseCell.swift in Sources */,
-				26692DA327537F89005E8888 /* PurchaseView.swift in Sources */,
+				26692DAB27545668005E8888 /* AccountView.swift in Sources */,
 				9E7C53F3274C801600090E61 /* SQLManager.swift in Sources */,
-				26692DA127537F50005E8888 /* AccountView.swift in Sources */,
 				9E7C53EC274C793100090E61 /* SettingsView.swift in Sources */,
+				26692DAF27546DF9005E8888 /* AccPurchaseManager.swift in Sources */,
 				9E7C53FB274C80DA00090E61 /* PurchaseManager.swift in Sources */,
 				9E7C53EA274C792500090E61 /* StatsView.swift in Sources */,
+				26692DA72754458D005E8888 /* AccountItem.swift in Sources */,
 				9E7C53E8274C791900090E61 /* PurchasesView.swift in Sources */,
 				9E7C53EE274C7A0300090E61 /* StartView.swift in Sources */,
+				26692DB227546E1B005E8888 /* AccPurchaseItem.swift in Sources */,
 				9E7C53B7274C32E500090E61 /* AppDelegate.swift in Sources */,
+				26692DA5275444A3005E8888 /* AccountCell.swift in Sources */,
 				26692D9F27537EFD005E8888 /* AccountsView.swift in Sources */,
+				26692DA9275445A0005E8888 /* AccountManager.swift in Sources */,
 				9E7C53FF274DD4EC00090E61 /* TabBarView.swift in Sources */,
 				9E7C53B9274C32E500090E61 /* SceneDelegate.swift in Sources */,
 			);
