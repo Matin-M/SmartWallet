@@ -24,6 +24,47 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         purchaseManager = PurchaseManager(userName: "TestUser", password: "TestPassword")
     }
     
+    @IBAction func addPurchase(_ sender: Any) {
+        performSegue(withIdentifier: "AddPurchase", sender: self)
+    }
+    
+    // MARK: Segue handling functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddPurchase") {
+            if let accountView: AddPurchaseView = segue.destination as? AddPurchaseView {
+                
+            }
+        }
+    }
+    
+    // Unwind and update the table with the new account
+    @IBAction func unwindToPurchases(segue: UIStoryboardSegue) {
+        if let source = segue.source as? AddPurchaseView {
+            DispatchQueue.main.async {
+                if (source.added == true){
+                    // Added succesfully
+                    let add = purchaseItem(purchaseID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
+                    self.purchaseManager?.addItem(newItem: add)
+                    let indexPath = IndexPath(row: (self.purchaseManager?.getCount())! - 1, section: 0)
+                    self.purchaseTable.beginUpdates()
+                    self.purchaseTable.insertRows(at: [indexPath], with: .automatic)
+                    self.purchaseTable.endUpdates()
+                } else if (source.added == false && source.index! == -1) {
+                    // Account specified not found
+                    let alert = UIAlertController(title: "Input Error", message: "Specified account not found", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                } else if (source.added == false && source.index! == -2) {
+                    // All forms not filled out
+                    let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+    }
+    
+    
     //MARK: - TableView delegate functions.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return purchaseManager?.getCount() ?? 0

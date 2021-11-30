@@ -23,18 +23,43 @@ class AccountsView: UIViewController {
         self.accountsTable.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.accountsTable.rowHeight = 90.0
         accountManager = AccountManager(userName: "TestUser", password: "TestPassword")
-        print(accountManager?.getCount() ?? 24)
         
     }
     
-    // Segue handling
+    // Go to Add Account View
+    @IBAction func addAccount(_ sender: Any) {
+        performSegue(withIdentifier: "AddAccount", sender: self)
+    }
+    
+    // MARK: Segue handling functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "Account") {
             if let accountView: AccountView = segue.destination as? AccountView {
                 accountView.accountName = selectedAccount?.accountName
                 accountView.balance = selectedAccount?.funds
             }
-            print("Segue to AccountView Complete")
+        } else if (segue.identifier == "AddAccount") {
+            
+        }
+    }
+    
+    // Unwind and update the table with the new account
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        if let source = segue.source as? AddAccountView {
+            DispatchQueue.main.async {
+                if (source.added == true) {
+                    let add = AccountItem(accountID: source.id, accountName: source.name!, funds: source.balance!)
+                    self.accountManager?.addItem(newItem: add)
+                    let indexPath = IndexPath(row: (self.accountManager?.getCount())! - 1, section: 0)
+                    self.accountsTable.beginUpdates()
+                    self.accountsTable.insertRows(at: [indexPath], with: .automatic)
+                    self.accountsTable.endUpdates()
+                } else {
+                    let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
         }
     }
 }
@@ -71,7 +96,6 @@ extension AccountsView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        // delete data from sneaker table,
         DispatchQueue.main.async {
             self.accountManager!.deleteItem(index: indexPath.row)
             self.accountsTable.beginUpdates()

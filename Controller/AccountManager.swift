@@ -32,6 +32,19 @@ class AccountManager {
         return accountList[index]
     }
     
+    func getItemNamed(name: String) -> Int{
+        var index = -1
+        if (accountList.count > 0) {
+            for i in (0...accountList.count - 1){
+                if name == accountList[i].accountName {
+                    index = i
+                    break
+                }
+            }
+        }
+        return index
+    }
+    
     func deleteItem(index: Int) -> Void {
         accountList.remove(at: index)
     }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -99,6 +100,96 @@
             </objects>
             <point key="canvasLocation" x="-755.07246376811599" y="-379.07608695652175"/>
         </scene>
+        <!--Create Account-->
+        <scene sceneID="25R-XI-whF">
+            <objects>
+                <viewController title="Create Account" id="NfT-fB-wZD" customClass="AddAccountView" customModule="SmartWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jh2-Ps-r4q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLu-jq-DNB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <color key="barTintColor" red="0.032600324180000001" green="0.032600324180000001" blue="0.032600324180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Add Account" id="mcm-G2-4OD"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cc-GM-0Sb">
+                                <rect key="frame" x="20" y="76" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZ3-fr-Nek">
+                                <rect key="frame" x="20" y="170" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zPs-4l-C9b">
+                                <rect key="frame" x="20" y="116" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fJ0-pA-TZk">
+                                <rect key="frame" x="20" y="210" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPm-op-9bf">
+                                <rect key="frame" x="20" y="274" width="374" height="40"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Add Account" subtitle="" cornerStyle="large">
+                                    <backgroundConfiguration key="background" strokeWidth="5" strokeOutset="2">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addAccount:" destination="NfT-fB-wZD" eventType="touchUpInside" id="jSF-2f-ymk"/>
+                                    <segue destination="H4V-Gi-SuV" kind="unwind" unwindAction="unwindToViewControllerWithSegue:" id="VZ6-QH-g7z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PT3-Lc-6fe"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UPm-op-9bf" firstAttribute="leading" secondItem="PT3-Lc-6fe" secondAttribute="leading" constant="20" id="2xp-97-gfc"/>
+                            <constraint firstItem="gZ3-fr-Nek" firstAttribute="leading" secondItem="PT3-Lc-6fe" secondAttribute="leading" constant="20" id="7eo-SA-9GK"/>
+                            <constraint firstItem="4Cc-GM-0Sb" firstAttribute="top" secondItem="YLu-jq-DNB" secondAttribute="bottom" constant="20" id="8H5-hJ-0uv"/>
+                            <constraint firstItem="zPs-4l-C9b" firstAttribute="top" secondItem="4Cc-GM-0Sb" secondAttribute="bottom" constant="10" id="9gq-dD-Nx8"/>
+                            <constraint firstItem="PT3-Lc-6fe" firstAttribute="trailing" secondItem="zPs-4l-C9b" secondAttribute="trailing" constant="20" id="Bxi-Hb-Js4"/>
+                            <constraint firstItem="fJ0-pA-TZk" firstAttribute="top" secondItem="gZ3-fr-Nek" secondAttribute="bottom" constant="10" id="Iyc-4F-sTl"/>
+                            <constraint firstItem="YLu-jq-DNB" firstAttribute="top" secondItem="PT3-Lc-6fe" secondAttribute="top" id="JEK-5S-5B7"/>
+                            <constraint firstItem="YLu-jq-DNB" firstAttribute="leading" secondItem="PT3-Lc-6fe" secondAttribute="leading" id="PJP-bJ-9lU"/>
+                            <constraint firstItem="4Cc-GM-0Sb" firstAttribute="leading" secondItem="PT3-Lc-6fe" secondAttribute="leading" constant="20" id="ZmG-mH-BQu"/>
+                            <constraint firstItem="4Cc-GM-0Sb" firstAttribute="trailing" secondItem="gZ3-fr-Nek" secondAttribute="trailing" id="cRU-hp-1RT"/>
+                            <constraint firstItem="fJ0-pA-TZk" firstAttribute="leading" secondItem="PT3-Lc-6fe" secondAttribute="leading" constant="20" id="dNQ-Ji-X68"/>
+                            <constraint firstItem="PT3-Lc-6fe" firstAttribute="trailing" secondItem="fJ0-pA-TZk" secondAttribute="trailing" constant="20" id="gaW-0d-goz"/>
+                            <constraint firstItem="gZ3-fr-Nek" firstAttribute="top" secondItem="zPs-4l-C9b" secondAttribute="bottom" constant="20" id="ncB-by-4jP"/>
+                            <constraint firstItem="PT3-Lc-6fe" firstAttribute="trailing" secondItem="UPm-op-9bf" secondAttribute="trailing" constant="20" id="pIE-D4-Gha"/>
+                            <constraint firstItem="zPs-4l-C9b" firstAttribute="leading" secondItem="PT3-Lc-6fe" secondAttribute="leading" constant="20" id="q1O-Eu-9KF"/>
+                            <constraint firstItem="UPm-op-9bf" firstAttribute="top" secondItem="fJ0-pA-TZk" secondAttribute="bottom" constant="30" id="rFO-KG-lJC"/>
+                            <constraint firstItem="YLu-jq-DNB" firstAttribute="trailing" secondItem="PT3-Lc-6fe" secondAttribute="trailing" id="tdD-SK-fKk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PLA-Ta-mBM"/>
+                    <connections>
+                        <outlet property="accountNameField" destination="zPs-4l-C9b" id="TCL-vI-X4P"/>
+                        <outlet property="currentBalanceField" destination="fJ0-pA-TZk" id="fny-BI-IyQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLL-Ak-cbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="H4V-Gi-SuV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-2555" y="1086"/>
+        </scene>
         <!--Tab Bar View-->
         <scene sceneID="3bn-7f-YQV">
             <objects>
@@ -140,6 +231,9 @@
                                     <navigationItem title="Accounts" id="hZP-3q-Pci">
                                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="pbH-vp-ven">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="addAccount:" destination="Npw-XX-tiS" id="wr4-Ba-0eQ"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -219,6 +313,7 @@
                     <connections>
                         <outlet property="accountsTable" destination="ztf-Q5-uRo" id="H5d-eB-Zp8"/>
                         <segue destination="R0T-4H-w4E" kind="show" identifier="Account" id="lqq-Kz-aLy"/>
+                        <segue destination="NfT-fB-wZD" kind="show" identifier="AddAccount" id="y1c-N8-tDX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxB-f7-Ba7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,6 +464,184 @@
             </objects>
             <point key="canvasLocation" x="-1768" y="1815"/>
         </scene>
+        <!--Add Purchase View-->
+        <scene sceneID="Upi-mW-cxj">
+            <objects>
+                <viewController id="gUB-7p-drD" customClass="AddPurchaseView" customModule="SmartWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="60F-dh-GFj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bth-ne-LfO">
+                                <rect key="frame" x="0.0" y="56" width="414" height="944"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-pk-TJS" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="944"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="s41-Yw-lGo">
+                                                <rect key="frame" x="45" y="10" width="324" height="32"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <segments>
+                                                    <segment title="Withdrawal"/>
+                                                    <segment title="Deposit"/>
+                                                </segments>
+                                                <color key="selectedSegmentTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Withdrawal Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPW-Y3-ZZK">
+                                                <rect key="frame" x="20" y="51" width="207" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l80-ZO-dYw">
+                                                <rect key="frame" x="20" y="91" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Withdrawal Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuj-MQ-0Td">
+                                                <rect key="frame" x="20" y="145" width="231" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9EP-id-CRU">
+                                                <rect key="frame" x="20" y="185" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Withdrawal Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkj-Rr-86r">
+                                                <rect key="frame" x="20" y="239" width="246" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaH-Mt-mxV">
+                                                <rect key="frame" x="20" y="279" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Withdrawal Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jll-13-qk6">
+                                                <rect key="frame" x="20" y="333" width="194" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGf-ND-agB">
+                                                <rect key="frame" x="20" y="373" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Withdrawal Account:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Sq-8gl">
+                                                <rect key="frame" x="20" y="427" width="236" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hz9-I3-bo3">
+                                                <rect key="frame" x="20" y="467" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dud-CX-Hcf">
+                                                <rect key="frame" x="20" y="531" width="374" height="40"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Add Withdrawal" subtitle="" cornerStyle="large">
+                                                    <backgroundConfiguration key="background" strokeWidth="5" strokeOutset="2">
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addAccount:" destination="gUB-7p-drD" eventType="touchUpInside" id="wSl-8P-CCw"/>
+                                                    <segue destination="IqK-eW-kn4" kind="unwind" unwindAction="unwindToPurchasesWithSegue:" id="c6v-7M-QVf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="9EP-id-CRU" firstAttribute="top" secondItem="Xuj-MQ-0Td" secondAttribute="bottom" constant="10" id="2vK-Ri-cOO"/>
+                                            <constraint firstItem="s41-Yw-lGo" firstAttribute="top" secondItem="qJ4-pk-TJS" secondAttribute="top" constant="10" id="3HF-se-aDb"/>
+                                            <constraint firstItem="Hz9-I3-bo3" firstAttribute="trailing" secondItem="MGf-ND-agB" secondAttribute="trailing" id="5I9-xj-euh"/>
+                                            <constraint firstItem="rkj-Rr-86r" firstAttribute="leading" secondItem="9EP-id-CRU" secondAttribute="leading" id="7ng-oP-ApM"/>
+                                            <constraint firstItem="bJU-Sq-8gl" firstAttribute="top" secondItem="MGf-ND-agB" secondAttribute="bottom" constant="20" id="9gw-7p-cJU"/>
+                                            <constraint firstItem="9EP-id-CRU" firstAttribute="trailing" secondItem="l80-ZO-dYw" secondAttribute="trailing" id="BOF-aJ-L8q"/>
+                                            <constraint firstItem="Xuj-MQ-0Td" firstAttribute="top" secondItem="l80-ZO-dYw" secondAttribute="bottom" constant="20" id="GG2-An-Xq3"/>
+                                            <constraint firstItem="ZaH-Mt-mxV" firstAttribute="top" secondItem="rkj-Rr-86r" secondAttribute="bottom" constant="10" id="Ku8-2G-DZB"/>
+                                            <constraint firstItem="Jll-13-qk6" firstAttribute="leading" secondItem="ZaH-Mt-mxV" secondAttribute="leading" id="Lmx-Uj-qdo"/>
+                                            <constraint firstItem="Hz9-I3-bo3" firstAttribute="leading" secondItem="MGf-ND-agB" secondAttribute="leading" id="NN5-sT-UN6"/>
+                                            <constraint firstItem="dud-CX-Hcf" firstAttribute="leading" secondItem="Hz9-I3-bo3" secondAttribute="leading" id="Pfi-er-tnS"/>
+                                            <constraint firstAttribute="height" constant="944" id="RCH-f7-iOe"/>
+                                            <constraint firstItem="Jll-13-qk6" firstAttribute="top" secondItem="ZaH-Mt-mxV" secondAttribute="bottom" constant="20" id="REJ-bI-gNH"/>
+                                            <constraint firstItem="Hz9-I3-bo3" firstAttribute="top" secondItem="bJU-Sq-8gl" secondAttribute="bottom" constant="10" id="RRE-f9-Rd4"/>
+                                            <constraint firstItem="MGf-ND-agB" firstAttribute="leading" secondItem="ZaH-Mt-mxV" secondAttribute="leading" id="W9J-Us-ZKR"/>
+                                            <constraint firstItem="l80-ZO-dYw" firstAttribute="top" secondItem="bPW-Y3-ZZK" secondAttribute="bottom" constant="10" id="Z90-jP-unF"/>
+                                            <constraint firstAttribute="trailing" secondItem="l80-ZO-dYw" secondAttribute="trailing" constant="20" id="bE0-9y-mk9"/>
+                                            <constraint firstItem="dud-CX-Hcf" firstAttribute="trailing" secondItem="Hz9-I3-bo3" secondAttribute="trailing" id="bjv-hX-mS2"/>
+                                            <constraint firstItem="bPW-Y3-ZZK" firstAttribute="leading" secondItem="qJ4-pk-TJS" secondAttribute="leading" constant="20" id="euw-ag-B3w"/>
+                                            <constraint firstItem="9EP-id-CRU" firstAttribute="leading" secondItem="l80-ZO-dYw" secondAttribute="leading" id="fqF-w8-IuZ"/>
+                                            <constraint firstItem="dud-CX-Hcf" firstAttribute="top" secondItem="Hz9-I3-bo3" secondAttribute="bottom" constant="30" id="g9z-8z-aTa"/>
+                                            <constraint firstAttribute="trailing" secondItem="s41-Yw-lGo" secondAttribute="trailing" constant="45" id="geb-Pf-fHs"/>
+                                            <constraint firstItem="MGf-ND-agB" firstAttribute="trailing" secondItem="ZaH-Mt-mxV" secondAttribute="trailing" id="grs-gB-cpF"/>
+                                            <constraint firstItem="MGf-ND-agB" firstAttribute="top" secondItem="Jll-13-qk6" secondAttribute="bottom" constant="10" id="hHL-O6-sLj"/>
+                                            <constraint firstItem="l80-ZO-dYw" firstAttribute="leading" secondItem="qJ4-pk-TJS" secondAttribute="leading" constant="20" id="kEa-tU-Yfz"/>
+                                            <constraint firstItem="s41-Yw-lGo" firstAttribute="leading" secondItem="qJ4-pk-TJS" secondAttribute="leading" constant="45" id="lzI-xH-NrT"/>
+                                            <constraint firstItem="bPW-Y3-ZZK" firstAttribute="top" secondItem="s41-Yw-lGo" secondAttribute="bottom" constant="10" id="muE-mp-xP1"/>
+                                            <constraint firstItem="rkj-Rr-86r" firstAttribute="top" secondItem="9EP-id-CRU" secondAttribute="bottom" constant="20" id="oRB-X3-o1t"/>
+                                            <constraint firstItem="Xuj-MQ-0Td" firstAttribute="leading" secondItem="l80-ZO-dYw" secondAttribute="leading" id="pKm-1r-kOc"/>
+                                            <constraint firstItem="ZaH-Mt-mxV" firstAttribute="trailing" secondItem="9EP-id-CRU" secondAttribute="trailing" id="qpP-gb-s19"/>
+                                            <constraint firstItem="bJU-Sq-8gl" firstAttribute="leading" secondItem="Jll-13-qk6" secondAttribute="leading" id="r2i-Xg-zWu"/>
+                                            <constraint firstItem="ZaH-Mt-mxV" firstAttribute="leading" secondItem="9EP-id-CRU" secondAttribute="leading" id="vH2-cI-WkX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qJ4-pk-TJS" secondAttribute="trailing" id="LLV-Uo-uhG"/>
+                                    <constraint firstItem="qJ4-pk-TJS" firstAttribute="leading" secondItem="Bth-ne-LfO" secondAttribute="leading" id="Mm4-hj-Bl0"/>
+                                    <constraint firstItem="qJ4-pk-TJS" firstAttribute="top" secondItem="Bth-ne-LfO" secondAttribute="top" id="SzV-u6-sLE"/>
+                                    <constraint firstAttribute="bottom" secondItem="qJ4-pk-TJS" secondAttribute="bottom" id="eBE-Nc-mT2"/>
+                                </constraints>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feU-4W-PUZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Add Transaction" id="bAA-0E-62z"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Sa-4z-RzY"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qJ4-pk-TJS" secondAttribute="width" id="6T3-pM-aMr"/>
+                            <constraint firstItem="Bth-ne-LfO" firstAttribute="top" secondItem="feU-4W-PUZ" secondAttribute="bottom" id="FMd-1d-6aY"/>
+                            <constraint firstItem="feU-4W-PUZ" firstAttribute="leading" secondItem="7Sa-4z-RzY" secondAttribute="leading" id="VWC-eW-aqj"/>
+                            <constraint firstItem="7Sa-4z-RzY" firstAttribute="trailing" secondItem="Bth-ne-LfO" secondAttribute="trailing" id="XVS-gj-c28"/>
+                            <constraint firstItem="feU-4W-PUZ" firstAttribute="top" secondItem="7Sa-4z-RzY" secondAttribute="top" id="Zuq-Ob-eHm"/>
+                            <constraint firstItem="Bth-ne-LfO" firstAttribute="leading" secondItem="7Sa-4z-RzY" secondAttribute="leading" id="aYL-pr-eg7"/>
+                            <constraint firstItem="7Sa-4z-RzY" firstAttribute="bottom" secondItem="Bth-ne-LfO" secondAttribute="bottom" id="fQo-3e-4HF"/>
+                            <constraint firstAttribute="trailing" secondItem="feU-4W-PUZ" secondAttribute="trailing" id="mWM-Vo-0g6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sPc-XT-4ek"/>
+                    <size key="freeformSize" width="414" height="1020"/>
+                    <connections>
+                        <outlet property="accountField" destination="Hz9-I3-bo3" id="3zv-xg-bI0"/>
+                        <outlet property="amountField" destination="9EP-id-CRU" id="aOb-PB-evh"/>
+                        <outlet property="categoryField" destination="ZaH-Mt-mxV" id="Cz1-M4-dcv"/>
+                        <outlet property="dateField" destination="MGf-ND-agB" id="Amt-In-amM"/>
+                        <outlet property="nameField" destination="l80-ZO-dYw" id="maG-CY-Qsn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lb8-iR-vqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="IqK-eW-kn4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1094.2028985507247" y="1929.6195652173915"/>
+        </scene>
         <!--Purchases-->
         <scene sceneID="JP5-dA-2ty">
             <objects>
@@ -388,6 +661,9 @@
                                     <navigationItem title="All Purchases" id="T3w-2M-yWV">
                                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="nJr-5X-RJ7">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="addPurchase:" destination="5QS-cP-URF" id="9jM-pH-ZVN"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -485,6 +761,7 @@
                     <navigationItem key="navigationItem" id="Xqh-Rm-pRc"/>
                     <connections>
                         <outlet property="purchaseTable" destination="8Az-3K-WJZ" id="irj-xf-3g4"/>
+                        <segue destination="gUB-7p-drD" kind="show" identifier="AddPurchase" id="JrA-mc-VDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dt-YX-smq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
