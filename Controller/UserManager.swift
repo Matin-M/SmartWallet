@@ -9,5 +9,8 @@ import Foundation
 
 class UserManager{
     
+    init(){
+        
+    }
     
 }
