@@ -7,7 +7,7 @@
 
 import Foundation
 
-class purchaseItem {
+class PurchaseItem {
     
     var purchaseID: Double?
     var title: String?
