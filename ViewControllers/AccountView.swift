@@ -29,6 +29,45 @@ class AccountView: UIViewController {
         accountNavigation.title = accountName
         availableBalance.text = "$\(String(format: "%.2f", self.balance!))"
     }
+    
+    @IBAction func addPurchase(_ sender: Any) {
+        performSegue(withIdentifier: "AddPurchaseFromAcc", sender: self)
+    }
+    
+    // MARK: Segue handling functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddPurchaseFromAcc") {
+            if let purchaseView: AddPurchaseView = segue.destination as? AddPurchaseView {
+                purchaseView.accFrom = accountName
+            }
+        }
+    }
+    
+    // Unwind and update the table with the new account
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        if let source = segue.source as? AddPurchaseView {
+            DispatchQueue.main.async {
+                if (source.added == true) {
+                    let add = AccPurchaseItem(purchaseID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
+                    self.accPurchaseManager?.addItem(newItem: add)
+                    let indexPath = IndexPath(row: (self.accPurchaseManager?.getCount())! - 1, section: 0)
+                    self.purchaseTable.beginUpdates()
+                    self.purchaseTable.insertRows(at: [indexPath], with: .automatic)
+                    self.purchaseTable.endUpdates()
+                } else if (source.added == false && source.index! == -1){
+                    let alert = UIAlertController(title: "Input Error", message: "Specified account not found", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                } else if (source.added == false && source.index! == -2) {
+                    // All forms not filled out
+                    let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+    }
+    
 }
 
 extension AccountView: UITableViewDelegate, UITableViewDataSource {

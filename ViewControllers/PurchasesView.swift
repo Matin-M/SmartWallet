@@ -50,7 +50,7 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     self.purchaseTable.insertRows(at: [indexPath], with: .automatic)
                     self.purchaseTable.endUpdates()
                 } else if (source.added == false && source.index! == -1) {
-                    // Account specified not found
+                    // Specified account not found
                     let alert = UIAlertController(title: "Input Error", message: "Specified account not found", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true)

@@ -21,15 +21,20 @@ class AddPurchaseView: UIViewController {
     var category: String?
     var index: Int?
     var added: Bool?
+    var accFrom: String?
+    var transactionType: Int? = 0 // 0 for withdraw, 1 for deposit
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var accountField: UITextField!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        accountField.text = accFrom
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddPurchaseView.viewTapped(gestureRecognizer:)))
         tapGesture.cancelsTouchesInView = false
@@ -44,6 +49,17 @@ class AddPurchaseView: UIViewController {
         accountManager = AccountManager(userName: "TestUser", password: "TestPassword")
     }
     
+    @IBAction func transactionType(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                transactionType = 0
+            case 1:
+                transactionType = 1
+            default:
+                break
+        }
+    }
+    
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -52,8 +68,10 @@ class AddPurchaseView: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
-        // Convert to yyyy-mm-dd for SQL
-        let convert = dateFormatter.string(from: datePicker.date)
+        // Convert to yyyy-mm-dd format for SQL
+        let oldDate = dateFormatter.string(from: datePicker.date)
+        let newDate = oldDate.components(separatedBy: "/")
+        let convert = "\(newDate[2])-\(newDate[0])-\(newDate[1])"
         
         dateField.text = convert
         view.endEditing(true)
@@ -64,6 +82,9 @@ class AddPurchaseView: UIViewController {
             id = 8 // Should be unique for DB
             name = nameField.text!
             amount = Double(amountField.text!)
+            if (transactionType == 0) {
+                amount = amount! * -1
+            }
             category = categoryField.text!
             date = dateField.text!
             index = accountManager?.getItemNamed(name: accountField.text!)
