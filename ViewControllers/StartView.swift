@@ -31,7 +31,20 @@ class StartView: UIViewController {
         performSegue(withIdentifier: "login", sender: nil)
     }
     
+    @IBAction func registerButton(_ sender: Any) {
+        performSegue(withIdentifier: "Register", sender: self)
+    }
     
-    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+        if let source = segue.source as? RegisterView {
+            DispatchQueue.main.async {
+                if (source.added == false) {
+                    let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+    }
     
 }
