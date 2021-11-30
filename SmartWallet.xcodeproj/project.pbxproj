@@ -169,6 +169,8 @@
 			dependencies = (
 			);
 			name = SmartWallet;
+			packageProductDependencies = (
+			);
 			productName = SmartWallet;
 			productReference = 9E7C53B3274C32E500090E61 /* SmartWallet.app */;
 			productType = "com.apple.product-type.application";
@@ -241,6 +243,8 @@
 				Base,
 			);
 			mainGroup = 9E7C53AA274C32E500090E61;
+			packageReferences = (
+			);
 			productRefGroup = 9E7C53B4274C32E500090E61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -471,6 +475,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmartWallet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,6 +503,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmartWallet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
