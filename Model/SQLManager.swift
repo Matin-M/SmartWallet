@@ -29,18 +29,26 @@ class SQLManager{
     
     func addContactInfo(name: String, phoneNumber: Int, address: String) -> Void{
         let contactID = generateRandID(length: 5)
-        if(/* check to see if account already exists */) {
-            if let cursor = makePostgreRequest(query: "UPDATE ContactInfo SET name = '\(name)', phoneNumber = '\(phoneNumber)', address = '\(address)' WHERE ContactInfo.contactID = (SELECT contactID FROM (SELECT userID, contactID FROM ContactInfo INNER JOIN Has using (contactID)) AS Temp WHERE Temp.userID = '\(userID!)');"){
-                print("Updated contact information")
-                cursor.close()
-            }
+        
+        if let cursor = makePostgreRequest(query: "UPDATE ContactInfo SET name = '\(name)', phoneNumber = '\(phoneNumber)', address = '\(address)' WHERE ContactInfo.contactID = (SELECT contactID FROM (SELECT userID, contactID FROM ContactInfo INNER JOIN Has using (contactID)) AS Temp WHERE Temp.userID = '\(userID!)');"){
+            print("Updated contact information")
+            cursor.close()
         }else{
-            print("Existing contact information does not exist. Adding")
-            if let cursor = makePostgreRequest(query: "INSERT INTO ContactInfo (contactID, name, phoneNumber, address) VALUES ('\(contactID)', '\(name)', '\(phoneNumber)', '\(address)'); INSERT INTO Has (userID, contactID); VALUES ('\(userID!)','\(contactID)');"){
+            print("Error updating contact info!")
+        }
+        
+        if let cursor = makePostgreRequest(query: "INSERT INTO ContactInfo (contactID, name, phoneNumber, address) SELECT '\(contactID)', '\(name)', '\(phoneNumber)', '\(address)' WHERE NOT EXISTS (SELECT 1 FROM Has WHERE userID = '\(userID!)');"){
+                print("Added contact information")
                 cursor.close()
-            }else{
-                print("Error!")
-            }
+        }else{
+            print("Error inserting contact info!")
+        }
+        
+        if let cursor = makePostgreRequest(query: "INSERT INTO Has (userID, contactID) SELECT '\(userID!)', '\(contactID)' WHERE NOT EXISTS (SELECT 1 FROM Has WHERE userID = '\(userID!)');"){
+                print("Added contact information")
+                cursor.close()
+        }else{
+            print("Error inserting contact info!")
         }
         
     }
