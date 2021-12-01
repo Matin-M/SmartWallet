@@ -360,17 +360,17 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" id="blf-EF-5c8" userLabel="AccountCell" customClass="AccountCell" customModule="SmartWallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="73.666664123535156"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="73.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="blf-EF-5c8" id="La0-eg-cJv" userLabel="Master View">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73.666664123535156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-v6-7SX" userLabel="Cell View">
-                                                    <rect key="frame" x="8" y="7.9999999999999964" width="398" height="57.666666666666657"/>
+                                                    <rect key="frame" x="8" y="8.0000000000000036" width="398" height="57.333333333333343"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccountName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g5-Oe-65l">
-                                                            <rect key="frame" x="8" y="15.000000000000002" width="143" height="27.666666666666671"/>
+                                                            <rect key="frame" x="8" y="14.999999999999998" width="143" height="27.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -783,6 +783,12 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="All Transactions" id="T3w-2M-yWV">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="cUj-V2-VhS">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="refresh:" destination="5QS-cP-URF" id="JcH-om-eso"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="nJr-5X-RJ7">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
@@ -959,6 +965,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="addContactInfoButton:" destination="ZAd-uf-b6n" eventType="touchUpInside" id="sIU-B6-g4Y"/>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5sR-tK-Vg2"/>
                                     <action selector="registerButton:" destination="nDb-mF-Zqu" eventType="touchUpInside" id="HTu-Ld-xIA"/>
                                 </connections>
@@ -1048,11 +1055,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egc-Rg-pV0">
-                                <rect key="frame" x="173" y="125" width="221" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xV7-1f-xKN">
                                 <rect key="frame" x="173" y="179" width="221" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1074,29 +1076,35 @@
                                     <action selector="updateButton:" destination="R26-IS-8qe" eventType="touchUpInside" id="8Wq-UB-HUd"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Oe-mi-kFB">
+                                <rect key="frame" x="173" y="125" width="221" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Pw-2r-VP2"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xV7-1f-xKN" firstAttribute="leading" secondItem="vhR-7e-eD6" secondAttribute="leading" id="1V0-ea-oEh"/>
                             <constraint firstItem="IuD-mO-TVK" firstAttribute="trailing" secondItem="CeJ-7e-3PU" secondAttribute="trailing" id="3HZ-x9-2NM"/>
+                            <constraint firstItem="0Oe-mi-kFB" firstAttribute="top" secondItem="vhR-7e-eD6" secondAttribute="bottom" constant="20" id="4yi-iO-3CY"/>
                             <constraint firstItem="vhR-7e-eD6" firstAttribute="leading" secondItem="Ovc-dc-LrL" secondAttribute="trailing" constant="10" id="5bB-9R-bbW"/>
                             <constraint firstItem="zFb-eI-OjH" firstAttribute="top" secondItem="xV7-1f-xKN" secondAttribute="bottom" constant="30" id="A8h-65-kSa"/>
-                            <constraint firstItem="egc-Rg-pV0" firstAttribute="trailing" secondItem="vhR-7e-eD6" secondAttribute="trailing" id="Bmk-s5-rHS"/>
                             <constraint firstItem="0Pw-2r-VP2" firstAttribute="trailing" secondItem="vhR-7e-eD6" secondAttribute="trailing" constant="20" id="CFC-lg-d4Y"/>
-                            <constraint firstItem="egc-Rg-pV0" firstAttribute="centerY" secondItem="CeJ-7e-3PU" secondAttribute="centerY" id="Fpv-6x-9O2"/>
                             <constraint firstItem="THc-dG-ppN" firstAttribute="top" secondItem="0Pw-2r-VP2" secondAttribute="top" id="Imi-Pj-Mtw"/>
                             <constraint firstItem="THc-dG-ppN" firstAttribute="leading" secondItem="0Pw-2r-VP2" secondAttribute="leading" id="LYD-fG-d8F"/>
+                            <constraint firstItem="0Oe-mi-kFB" firstAttribute="leading" secondItem="CeJ-7e-3PU" secondAttribute="trailing" constant="10" id="RC7-2b-bvw"/>
                             <constraint firstItem="xV7-1f-xKN" firstAttribute="centerY" secondItem="IuD-mO-TVK" secondAttribute="centerY" id="RIK-kf-gei"/>
                             <constraint firstItem="zFb-eI-OjH" firstAttribute="centerX" secondItem="i9E-hc-m1A" secondAttribute="centerX" id="WE7-dX-8wA"/>
+                            <constraint firstItem="xV7-1f-xKN" firstAttribute="top" secondItem="0Oe-mi-kFB" secondAttribute="bottom" constant="20" id="Xgj-FV-M2U"/>
                             <constraint firstItem="Ovc-dc-LrL" firstAttribute="leading" secondItem="0Pw-2r-VP2" secondAttribute="leading" constant="20" id="a18-mi-zfZ"/>
+                            <constraint firstItem="0Pw-2r-VP2" firstAttribute="trailing" secondItem="0Oe-mi-kFB" secondAttribute="trailing" constant="20" id="cod-L7-NNm"/>
                             <constraint firstItem="IuD-mO-TVK" firstAttribute="top" secondItem="CeJ-7e-3PU" secondAttribute="bottom" constant="30" id="ezV-sP-bys"/>
                             <constraint firstItem="xV7-1f-xKN" firstAttribute="trailing" secondItem="vhR-7e-eD6" secondAttribute="trailing" id="fqP-9J-51I"/>
                             <constraint firstItem="THc-dG-ppN" firstAttribute="trailing" secondItem="0Pw-2r-VP2" secondAttribute="trailing" id="jHY-CK-e2A"/>
                             <constraint firstItem="CeJ-7e-3PU" firstAttribute="top" secondItem="Ovc-dc-LrL" secondAttribute="bottom" constant="30" id="nrv-wC-j3B"/>
                             <constraint firstItem="CeJ-7e-3PU" firstAttribute="leading" secondItem="Ovc-dc-LrL" secondAttribute="leading" id="qGh-Ax-BaX"/>
                             <constraint firstItem="Ovc-dc-LrL" firstAttribute="top" secondItem="THc-dG-ppN" secondAttribute="bottom" constant="20" id="rPU-EB-uIc"/>
-                            <constraint firstItem="egc-Rg-pV0" firstAttribute="leading" secondItem="vhR-7e-eD6" secondAttribute="leading" id="uUs-kK-tXw"/>
                             <constraint firstItem="vhR-7e-eD6" firstAttribute="centerY" secondItem="Ovc-dc-LrL" secondAttribute="centerY" id="wUe-3f-63S"/>
                             <constraint firstItem="Ovc-dc-LrL" firstAttribute="trailing" secondItem="CeJ-7e-3PU" secondAttribute="trailing" id="wf2-Af-4WC"/>
                             <constraint firstItem="IuD-mO-TVK" firstAttribute="leading" secondItem="CeJ-7e-3PU" secondAttribute="leading" id="xi7-5h-Spa"/>
@@ -1106,18 +1114,19 @@
                     <connections>
                         <outlet property="addressField" destination="xV7-1f-xKN" id="OMT-vA-qrz"/>
                         <outlet property="nameField" destination="vhR-7e-eD6" id="nJv-pF-Scx"/>
-                        <outlet property="phoneNumField" destination="egc-Rg-pV0" id="o8j-jZ-9PK"/>
+                        <outlet property="phoneField" destination="0Oe-mi-kFB" id="cpm-DT-9XS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oI-46-0al" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="1815"/>
+            <point key="canvasLocation" x="269.56521739130437" y="1814.6739130434785"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="JrA-mc-VDK"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>

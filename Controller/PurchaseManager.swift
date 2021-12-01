@@ -14,14 +14,10 @@ class PurchaseManager{
     private var userID: String?
     private let sqlManager: SQLManager = SQLManager()
     
-    init(userID: String)
-    {
+    init(userID: String){
         //Populate purchase list with items from users accounts.
         self.userID = userID
-        //Test Data
-        print(userID)
         purchaseList = sqlManager.getAllUserPurchases()
-        
     }
     
     func getCount () -> Int{
@@ -37,6 +33,7 @@ class PurchaseManager{
     }
     
     func deleteItem(index: Int) -> Void {
+        sqlManager.deleteTransaction(transactionID: purchaseList[index].transactionID!)
         purchaseList.remove(at: index)
     }
     
