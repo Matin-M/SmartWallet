@@ -360,17 +360,17 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" id="blf-EF-5c8" userLabel="AccountCell" customClass="AccountCell" customModule="SmartWallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="73.333335876464844"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="73.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="blf-EF-5c8" id="La0-eg-cJv" userLabel="Master View">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73.333335876464844"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73.666664123535156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-v6-7SX" userLabel="Cell View">
-                                                    <rect key="frame" x="8" y="8.0000000000000036" width="398" height="57.333333333333343"/>
+                                                    <rect key="frame" x="8" y="7.9999999999999964" width="398" height="57.666666666666657"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccountName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g5-Oe-65l">
-                                                            <rect key="frame" x="8" y="14.999999999999998" width="143" height="27.333333333333329"/>
+                                                            <rect key="frame" x="8" y="15.000000000000002" width="143" height="27.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -769,7 +769,7 @@
         <!--Purchases-->
         <scene sceneID="JP5-dA-2ty">
             <objects>
-                <viewController id="5QS-cP-URF" customClass="PurchasesView" customModule="SmartWallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PurchasesView" id="5QS-cP-URF" customClass="PurchasesView" customModule="SmartWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HC5-rL-EX1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

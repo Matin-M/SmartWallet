@@ -11,11 +11,15 @@ import UIKit
 class StatsView: UIViewController, ChartViewDelegate{
     
     var pieChart = PieChartView()
+    var userID: String?
+    var purchaseManager: PurchaseManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         pieChart.delegate = self
+        self.userID = StartView.userID
+        purchaseManager = PurchaseManager(userID: userID!)
     }
     
     override func viewDidLayoutSubviews() {

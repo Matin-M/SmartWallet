@@ -11,17 +11,17 @@ class PurchaseManager{
     
     private var purchaseList: [PurchaseItem] = []
     private var userName: String?
+    private var userID: String?
+    private let sqlManager: SQLManager = SQLManager()
     
-    
-    init(userName: String, password: String)
+    init(userID: String)
     {
         //Populate purchase list with items from users accounts.
-        
+        self.userID = userID
         //Test Data
-        addItem(newItem: PurchaseItem(purchaseID: 1, title: "M1 Pro Macbook", date: "2021-1-2", amount: 3000.01, category: "Technology"))
-        addItem(newItem: PurchaseItem(purchaseID: 2, title: "Apple iPad", date: "2021-1-3", amount: 1000.22, category: "Technology"))
-        addItem(newItem: PurchaseItem(purchaseID: 1, title: "Safeway", date: "2021-1-5", amount: 100.22, category: "Groceries"))
-
+        print(userID)
+        purchaseList = sqlManager.getAllUserPurchases()
+        
     }
     
     func getCount () -> Int{

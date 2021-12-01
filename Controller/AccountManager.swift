@@ -11,9 +11,11 @@ class AccountManager {
     
     private var accountList: [AccountItem] = []
     private var userName: String?
+    private var userID: String?
     
-    init(userName: String, password: String) {
+    init(userID: String) {
         // Test Data
+        self.userID = userID
         addItem(newItem: AccountItem(accountID: 1, accountName: "Wells Fargo Checking", funds: 541.78))
         addItem(newItem: AccountItem(accountID: 2, accountName: "Wells Fargo Savings", funds: 1085.24))
         addItem(newItem: AccountItem(accountID: 3, accountName: "Venmo Account", funds: 36.82))
