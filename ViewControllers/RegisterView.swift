@@ -18,6 +18,8 @@ class RegisterView: UIViewController {
     var password: String?
     var added: Bool?
     
+    var sqlManager: SQLManager = SQLManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +31,7 @@ class RegisterView: UIViewController {
             email = emailField.text!
             password = passwordField.text!
             added = true
-            // INSERT INTO Users (userID, email, passwd) VALUES (id, email, password);
+            sqlManager.registerUser(email: email!, password: password!)
         } else {
             added = false
         }
