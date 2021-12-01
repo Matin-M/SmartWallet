@@ -1,18 +1,31 @@
 PODS:
+  - BlueSocket (1.0.52)
+  - BlueSSLService (1.0.52):
+    - BlueSocket (~> 1.0.52)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - PostgresClientKit (1.4.1):
+    - BlueSocket (~> 1.0)
+    - BlueSSLService (~> 1.0)
 
 DEPENDENCIES:
   - Charts
+  - PostgresClientKit (~> 1.4)
 
 SPEC REPOS:
   trunk:
+    - BlueSocket
+    - BlueSSLService
     - Charts
+    - PostgresClientKit
 
 SPEC CHECKSUMS:
+  BlueSocket: 1acd943acb07b55905291d608649fcfbf8cbd57d
+  BlueSSLService: b791a3db95b841973c44870f59bbf94628845b58
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  PostgresClientKit: 10ac5fdbb26c7617dee0f701e67ebe92f3a093ce
 
-PODFILE CHECKSUM: e8b9cf862c4c352ba130c4d6af5b36b8bd9b4ac3
+PODFILE CHECKSUM: 7edeea9d54900e89dcec6194363b35a8d9ae6b45
 
 COCOAPODS: 1.11.2
