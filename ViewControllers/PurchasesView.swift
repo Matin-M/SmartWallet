@@ -30,6 +30,12 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         performSegue(withIdentifier: "AddPurchase", sender: self)
     }
     
+    @IBAction func refresh(_ sender: Any) {
+        purchaseManager = PurchaseManager(userID: userID!)
+        self.purchaseTable.reloadData()
+    }
+    
+    
     // MARK: Segue handling functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddPurchase") {

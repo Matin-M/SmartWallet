@@ -19,14 +19,44 @@ class SQLManager{
         self.userID = StartView.userID
     }
     
+    func deleteTransaction(transactionID: String) -> Void{
+        if let cursor = makePostgreRequest(query: "DELETE FROM Transaction WHERE transactionID = '\(transactionID)';"){
+            cursor.close()
+        }else{
+            print("Error!")
+        }
+    }
+    
+    func addContactInfo(name: String, phoneNumber: Int, address: String) -> Void{
+        let contactID = generateRandID(length: 5)
+        if(/* check to see if account already exists */) {
+            if let cursor = makePostgreRequest(query: "UPDATE ContactInfo SET name = '\(name)', phoneNumber = '\(phoneNumber)', address = '\(address)' WHERE ContactInfo.contactID = (SELECT contactID FROM (SELECT userID, contactID FROM ContactInfo INNER JOIN Has using (contactID)) AS Temp WHERE Temp.userID = '\(userID!)');"){
+                print("Updated contact information")
+                cursor.close()
+            }
+        }else{
+            print("Existing contact information does not exist. Adding")
+            if let cursor = makePostgreRequest(query: "INSERT INTO ContactInfo (contactID, name, phoneNumber, address) VALUES ('\(contactID)', '\(name)', '\(phoneNumber)', '\(address)'); INSERT INTO Has (userID, contactID); VALUES ('\(userID!)','\(contactID)');"){
+                cursor.close()
+            }else{
+                print("Error!")
+            }
+        }
+        
+    }
+    
     func registerUser(email: String, password: String) -> Void{
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let id = String((0..<5).map{ _ in letters.randomElement()! })
+        let id = generateRandID(length: 5)
         if let cursor =  makePostgreRequest(query: "INSERT INTO Users (userID, email, passwd) VALUES ('\(id)', '\(email)', '\(password)');"){
             cursor.close()
         }else{
-            print("Test")
+            print("Error!")
         }
+    }
+    
+    func generateRandID(length: Int) -> String{
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
     func validateCredentials(email: String, passwd: String) -> Bool {
@@ -65,11 +95,11 @@ class SQLManager{
             do{
                 for row in cursor{
                     let columns = try row.get().columns
-                    let transactionID: String = try columns[0].string()
-                    let title: String = try columns[1].string()
-                    let date: String = try columns[2].string()
-                    let amount: Double = try columns[3].optionalDouble() ?? 0
-                    let category: String = try columns[4].string()
+                    let transactionID: String = try columns[1].string()
+                    let title: String = try columns[2].string()
+                    let date: String = try columns[3].string()
+                    let amount: Double = try columns[4].optionalDouble() ?? 0
+                    let category: String = try columns[5].string()
                     let newPurchaseItem: PurchaseItem = PurchaseItem(transactionID: transactionID, title: title, date: date, amount: amount, category: category)
                     itemArray.append(newPurchaseItem)
                 }
@@ -77,8 +107,6 @@ class SQLManager{
             }catch{
                 print(error)
             }
-        }else{
-            //show error message.
         }
         return itemArray
     }
@@ -90,11 +118,11 @@ class SQLManager{
             do{
                 for row in cursor{
                     let columns = try row.get().columns
-                    let transactionID: String = try columns[0].string()
-                    let title: String = try columns[1].string()
-                    let date: String = try columns[2].string()
-                    let amount: Double = try columns[3].optionalDouble() ?? 0
-                    let category: String = try columns[4].string()
+                    let transactionID: String = try columns[1].string()
+                    let title: String = try columns[2].string()
+                    let date: String = try columns[3].string()
+                    let amount: Double = try columns[4].optionalDouble() ?? 0
+                    let category: String = try columns[5].string()
                     let newPurchaseItem: PurchaseItem = PurchaseItem(transactionID: transactionID, title: title, date: date, amount: amount, category: category)
                     itemArray.append(newPurchaseItem)
                 }
@@ -102,8 +130,6 @@ class SQLManager{
             }catch{
                 print(error)
             }
-        }else{
-            //show error message.
         }
         return itemArray
     }

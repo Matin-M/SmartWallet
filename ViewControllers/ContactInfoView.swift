@@ -18,6 +18,7 @@ class ContactInfoView: UIViewController {
     var phone: Int?
     var address: String?
     var added: Bool?
+    let sqlManager: SQLManager = SQLManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,7 @@ class ContactInfoView: UIViewController {
             phone = Int(phoneField.text!)
             address = addressField.text!
             added = true
-            // INSERT INTO ContactInfo (name, phoneNumber, address) VALUES (name, phone, address)
-            // INSERT INTO Has (userID, phoneNumber) VALUES (currentUID, phone)
+            sqlManager.addContactInfo(name: name!, phoneNumber: phone!, address: address!)
         } else {
             added = false
         }

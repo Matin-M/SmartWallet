@@ -15,6 +15,10 @@ class SettingsView: UIViewController {
         overrideUserInterfaceStyle = .dark
     }
     
+    @IBAction func addContactInfoButton(_ sender: Any) {
+        performSegue(withIdentifier: "ContactInfo", sender: self)
+    }
+    
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
         if let source = segue.source as? ContactInfoView {
             DispatchQueue.main.async {
