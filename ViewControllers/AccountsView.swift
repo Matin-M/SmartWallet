@@ -10,9 +10,9 @@ import UIKit
 
 class AccountsView: UIViewController {
     
-    var userManager: UserManager?
     var accountManager: AccountManager?
     var selectedAccount: AccountItem?
+    var userID: String?
     
     @IBOutlet weak var accountsTable: UITableView!
     
@@ -22,8 +22,8 @@ class AccountsView: UIViewController {
         self.accountsTable.backgroundColor = UIColor.black
         self.accountsTable.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.accountsTable.rowHeight = 90.0
-        accountManager = AccountManager(userName: "TestUser", password: "TestPassword")
-        
+        self.userID = StartView.userID
+        accountManager = AccountManager(userID: "test")
     }
     
     // Go to Add Account View

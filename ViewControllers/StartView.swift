@@ -15,6 +15,7 @@ class StartView: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var greetingLabel: UILabel!
+    public static var userID: String?
     
     let credentials: SQLManager = SQLManager()
     

@@ -10,8 +10,8 @@ import UIKit
 
 class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var userManager: UserManager?
     var purchaseManager: PurchaseManager?
+    var userID: String?
     
     @IBOutlet weak var purchaseTable: UITableView!
     
@@ -21,7 +21,9 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.purchaseTable.backgroundColor = UIColor.black
         self.purchaseTable.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.purchaseTable.rowHeight = 90.0
-        purchaseManager = PurchaseManager(userName: "TestUser", password: "TestPassword")
+        self.userID = StartView.userID
+        purchaseManager = PurchaseManager(userID: userID!)
+        
     }
     
     @IBAction func addPurchase(_ sender: Any) {
@@ -43,7 +45,7 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             DispatchQueue.main.async {
                 if (source.added == true){
                     // Added succesfully
-                    let add = PurchaseItem(purchaseID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
+                    let add = PurchaseItem(transactionID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
                     self.purchaseManager?.addItem(newItem: add)
                     let indexPath = IndexPath(row: (self.purchaseManager?.getCount())! - 1, section: 0)
                     self.purchaseTable.beginUpdates()

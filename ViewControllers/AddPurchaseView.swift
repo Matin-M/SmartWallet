@@ -11,10 +11,9 @@ import UIKit
 class AddPurchaseView: UIViewController {
     
     private var datePicker: UIDatePicker?
-    var userManager: UserManager?
     var accountManager: AccountManager?
     var selectedAccount: AccountItem?
-    var id: Double?
+    var id: String?
     var name: String?
     var date: String?
     var amount: Double?
@@ -46,7 +45,7 @@ class AddPurchaseView: UIViewController {
         
         dateField.inputView = datePicker
         
-        accountManager = AccountManager(userName: "TestUser", password: "TestPassword")
+        accountManager = AccountManager(userID: "TestUser")
     }
     
     @IBAction func transactionType(_ sender: Any) {
@@ -79,7 +78,7 @@ class AddPurchaseView: UIViewController {
     
     @IBAction func addAccount(_ sender: Any) {
         if (nameField.text != "" && amountField.text != "" && categoryField.text != "" && dateField.text != "" && accountField.text != "") {
-            id = 8 // Should be unique for DB
+            id = "test"// Should be unique for DB
             name = nameField.text!
             amount = Double(amountField.text!)
             if (transactionType == 0) {

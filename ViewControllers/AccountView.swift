@@ -10,7 +10,6 @@ import UIKit
 
 class AccountView: UIViewController {
     
-    var userManager: UserManager?
     var accPurchaseManager: AccPurchaseManager?
     var accountName: String?
     var balance: Double?
