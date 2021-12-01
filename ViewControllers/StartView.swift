@@ -20,21 +20,14 @@ class StartView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let p = PGConnection()
-//        let status = p.connectdb("host=34.125.38.32 dbname=postgres")
-//        defer {
-//            print("Status = \(status)")
-//            p.close() // close the connection
-//        }
     }
     
     @IBAction func loginButton(_ sender: Any) {
         //Validate login informatin, then toggle segue.
-        if(credentials.validateCredentials(userid: usernameField.text ?? "N/A", passwd: passwordField.text ?? "N/A")){
+        if(credentials.validateCredentials(email: usernameField.text ?? "N/A", passwd: passwordField.text ?? "N/A")){
             performSegue(withIdentifier: "login", sender: nil)
         }else{
-            greetingLabel.text = "Incorrect sername or password, please try again!"
+            greetingLabel.text = "Incorrect username or password, please try again!"
             greetingLabel.textColor = UIColor.red
         }
     }

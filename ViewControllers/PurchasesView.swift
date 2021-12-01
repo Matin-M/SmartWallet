@@ -43,7 +43,7 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             DispatchQueue.main.async {
                 if (source.added == true){
                     // Added succesfully
-                    let add = purchaseItem(purchaseID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
+                    let add = PurchaseItem(purchaseID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
                     self.purchaseManager?.addItem(newItem: add)
                     let indexPath = IndexPath(row: (self.purchaseManager?.getCount())! - 1, section: 0)
                     self.purchaseTable.beginUpdates()

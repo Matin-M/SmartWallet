@@ -18,9 +18,9 @@ class PurchaseManager{
         //Populate purchase list with items from users accounts.
         
         //Test Data
-        addItem(newItem: purchaseItem(purchaseID: 1, title: "M1 Pro Macbook", date: "2021-1-2", amount: 3000.01, category: "Technology"))
-        addItem(newItem: purchaseItem(purchaseID: 2, title: "Apple iPad", date: "2021-1-3", amount: 1000.22, category: "Technology"))
-        addItem(newItem: purchaseItem(purchaseID: 1, title: "Safeway", date: "2021-1-5", amount: 100.22, category: "Groceries"))
+        addItem(newItem: PurchaseItem(purchaseID: 1, title: "M1 Pro Macbook", date: "2021-1-2", amount: 3000.01, category: "Technology"))
+        addItem(newItem: PurchaseItem(purchaseID: 2, title: "Apple iPad", date: "2021-1-3", amount: 1000.22, category: "Technology"))
+        addItem(newItem: PurchaseItem(purchaseID: 1, title: "Safeway", date: "2021-1-5", amount: 100.22, category: "Groceries"))
 
     }
     
