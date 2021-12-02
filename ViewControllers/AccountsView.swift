@@ -23,7 +23,18 @@ class AccountsView: UIViewController {
         self.accountsTable.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.accountsTable.rowHeight = 90.0
         self.userID = StartView.userID
-        accountManager = AccountManager(userID: "test")
+    }
+    
+    // Automatically refresh the table when loading view
+    override func viewDidAppear(_ animated: Bool) {
+        self.accountManager = AccountManager(userID: self.userID!)
+        self.accountsTable.reloadData()
+    }
+    
+    // Refresh table
+    @IBAction func refreshAccounts(_ sender: Any) {
+        self.accountManager = AccountManager(userID: self.userID!)
+        self.accountsTable.reloadData()
     }
     
     // Go to Add Account View
@@ -48,12 +59,8 @@ class AccountsView: UIViewController {
         if let source = segue.source as? AddAccountView {
             DispatchQueue.main.async {
                 if (source.added == true) {
-                    let add = AccountItem(accountID: source.id, accountName: source.name!, funds: source.balance!)
-                    self.accountManager?.addItem(newItem: add)
-                    let indexPath = IndexPath(row: (self.accountManager?.getCount())! - 1, section: 0)
-                    self.accountsTable.beginUpdates()
-                    self.accountsTable.insertRows(at: [indexPath], with: .automatic)
-                    self.accountsTable.endUpdates()
+                    self.accountManager = AccountManager(userID: self.userID!)
+                    self.accountsTable.reloadData()
                 } else {
                     let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -75,7 +82,12 @@ extension AccountsView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCell", for: indexPath) as! AccountCell
         let accountItem = accountManager!.getItem(index: indexPath.row)
         cell.accountName.text = accountItem.accountName
-        cell.amtAvailable.text = "$\(String(format: "%.2f", accountItem.funds!))"
+        if (accountItem.funds! > 0) {
+            cell.amtAvailable.text = "$\(String(format: "%.2f", accountItem.funds!))"
+        } else {
+            let temp = -1 * accountItem.funds!
+            cell.amtAvailable.text = "- $\(String(format: "%.2f", temp))"
+        }
         return cell
     }
     

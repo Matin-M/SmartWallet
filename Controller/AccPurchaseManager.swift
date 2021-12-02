@@ -9,31 +9,33 @@ import Foundation
 
 class AccPurchaseManager {
     
-    private var accPurchaseList: [AccPurchaseItem] = []
+    private var accPurchaseList: [PurchaseItem] = []
+    private let sqlManager: SQLManager = SQLManager()
     private var userName: String?
+    private var userID: String?
     
-    init(userName: String, password: String)
+    init(userID: String, accountID: String)
     {
-        //Populate purchase list with items from users accounts.
-        
-        //Test Data
-        addItem(newItem: AccPurchaseItem(purchaseID: "1", title: "M1 Pro Macbook", date: "1/2/21", amount: 3000.01, category: "Technology"))
-        addItem(newItem: AccPurchaseItem(purchaseID: "2", title: "Safeway", date: "1/5/21", amount: 100.22, category: "Groceries"))
+        self.userID = userID
+        accPurchaseList = sqlManager.getPurchasesByAccountID(accountID: accountID)
+        print("Getting related purchases to \(accountID): \(accPurchaseList.count)")
     }
     
     func getCount () -> Int{
         return accPurchaseList.count
     }
     
-    func addItem (newItem: AccPurchaseItem) -> Void{
+    func addItem (newItem: PurchaseItem) -> Void{
         accPurchaseList.append(newItem)
     }
     
-    func getItem(index: Int) -> AccPurchaseItem{
+    func getItem(index: Int) -> PurchaseItem{
         return accPurchaseList[index]
     }
     
     func deleteItem(index: Int) -> Void {
+        let aID = sqlManager.getAccountIDOfTransaction(transactionID: accPurchaseList[index].transactionID!)
+        sqlManager.deleteTransaction(transactionID: accPurchaseList[index].transactionID!, accountID: aID)
         accPurchaseList.remove(at: index)
     }
 }

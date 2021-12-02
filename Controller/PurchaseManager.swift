@@ -33,7 +33,8 @@ class PurchaseManager{
     }
     
     func deleteItem(index: Int) -> Void {
-        sqlManager.deleteTransaction(transactionID: purchaseList[index].transactionID!)
+        let aID = sqlManager.getAccountIDOfTransaction(transactionID: purchaseList[index].transactionID!)
+        sqlManager.deleteTransaction(transactionID: purchaseList[index].transactionID!, accountID: aID)
         purchaseList.remove(at: index)
     }
     

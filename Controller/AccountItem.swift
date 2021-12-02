@@ -9,11 +9,11 @@ import Foundation
 
 class AccountItem {
     
-    var accountID: Double?
+    var accountID: String?
     var accountName: String?
     var funds: Double?
     
-    init(accountID: Double?, accountName: String?, funds: Double?) {
+    init(accountID: String?, accountName: String?, funds: Double?) {
         self.accountID = accountID
         self.accountName = accountName
         self.funds = funds

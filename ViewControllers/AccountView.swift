@@ -11,8 +11,11 @@ import UIKit
 class AccountView: UIViewController {
     
     var accPurchaseManager: AccPurchaseManager?
+    var sqlManager: SQLManager = SQLManager()
+    var accountsView: AccountsView = AccountsView()
     var accountName: String?
     var balance: Double?
+    var userID: String?
     
     @IBOutlet weak var availableBalance: UILabel!
     @IBOutlet weak var purchaseTable: UITableView!
@@ -24,9 +27,12 @@ class AccountView: UIViewController {
         self.purchaseTable.backgroundColor = UIColor.black
         self.purchaseTable.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.purchaseTable.rowHeight = 90.0
-        accPurchaseManager = AccPurchaseManager(userName: "TestUser", password: "TestPassword")
         accountNavigation.title = accountName
         availableBalance.text = "$\(String(format: "%.2f", self.balance!))"
+        
+        self.userID = StartView.userID
+        let accountID = sqlManager.getAccountIdFromName(uID: userID!, name: accountName!)
+        accPurchaseManager = AccPurchaseManager(userID: userID!, accountID: accountID)
     }
     
     @IBAction func addPurchase(_ sender: Any) {
@@ -47,17 +53,16 @@ class AccountView: UIViewController {
         if let source = segue.source as? AddPurchaseView {
             DispatchQueue.main.async {
                 if (source.added == true) {
-                    let add = AccPurchaseItem(purchaseID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
-                    self.accPurchaseManager?.addItem(newItem: add)
+                    self.accPurchaseManager = AccPurchaseManager(userID: self.userID!, accountID: source.accountID!)
                     let indexPath = IndexPath(row: (self.accPurchaseManager?.getCount())! - 1, section: 0)
                     self.purchaseTable.beginUpdates()
                     self.purchaseTable.insertRows(at: [indexPath], with: .automatic)
                     self.purchaseTable.endUpdates()
-                } else if (source.added == false && source.index! == -1){
+                } else if (source.added == false && source.accountID == "Error"){
                     let alert = UIAlertController(title: "Input Error", message: "Specified account not found", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true)
-                } else if (source.added == false && source.index! == -2) {
+                } else if (source.added == false && source.accountID == "False") {
                     // All forms not filled out
                     let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -76,7 +81,12 @@ extension AccountView: UITableViewDelegate, UITableViewDataSource {
         let purchaseItem = accPurchaseManager!.getItem(index: indexPath.row)
         cell.purchaseName.text = purchaseItem.title
         cell.purchaseCategory.text = purchaseItem.category
-        cell.purchaseAmount.text = "$\(purchaseItem.amount ?? 0.0)"
+        if (purchaseItem.amount! > 0) {
+            cell.purchaseAmount.text = "$\(String(format: "%.2f", purchaseItem.amount!))"
+        } else {
+            let temp = -1 * purchaseItem.amount!
+            cell.purchaseAmount.text = "- $\(String(format: "%.2f", temp))"
+        }
         cell.purchaseDate.text = purchaseItem.date
         return cell
     }
@@ -104,9 +114,9 @@ extension AccountView: UITableViewDelegate, UITableViewDataSource {
         // delete data from sneaker table,
         DispatchQueue.main.async {
             self.accPurchaseManager!.deleteItem(index: indexPath.row)
-            self.purchaseTable.beginUpdates()
-            self.purchaseTable.deleteRows(at: [indexPath], with: .automatic)
-            self.purchaseTable.endUpdates()
+            self.purchaseTable.reloadData()
+            let aID = self.sqlManager.getAccountIdFromName(uID: self.userID!, name: self.accountName!)
+            self.availableBalance.text = "$\(String(format: "%.2f", self.sqlManager.getAccountFunds(accountID: aID)))"
         }
     }
 }

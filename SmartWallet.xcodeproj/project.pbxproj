@@ -16,7 +16,6 @@
 		26692DAB27545668005E8888 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DAA27545668005E8888 /* AccountView.swift */; };
 		26692DAD27546DD0005E8888 /* AccPurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DAC27546DD0005E8888 /* AccPurchaseCell.swift */; };
 		26692DAF27546DF9005E8888 /* AccPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DAE27546DF9005E8888 /* AccPurchaseManager.swift */; };
-		26692DB227546E1B005E8888 /* AccPurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26692DB127546E1B005E8888 /* AccPurchaseItem.swift */; };
 		269DFAEE27561C1700F844A8 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269DFAED27561C1700F844A8 /* RegisterView.swift */; };
 		269DFAF02756201000F844A8 /* ContactInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269DFAEF2756201000F844A8 /* ContactInfoView.swift */; };
 		6BBFA12E5F543E38AB7E54C1 /* Pods_SmartWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3B48B38C0C06CC61ED3AD6 /* Pods_SmartWallet.framework */; };
@@ -63,7 +62,6 @@
 		26692DAA27545668005E8888 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		26692DAC27546DD0005E8888 /* AccPurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccPurchaseCell.swift; sourceTree = "<group>"; };
 		26692DAE27546DF9005E8888 /* AccPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccPurchaseManager.swift; sourceTree = "<group>"; };
-		26692DB127546E1B005E8888 /* AccPurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccPurchaseItem.swift; sourceTree = "<group>"; };
 		269DFAED27561C1700F844A8 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		269DFAEF2756201000F844A8 /* ContactInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoView.swift; sourceTree = "<group>"; };
 		760C12D10AD170DDACEDC7A6 /* Pods-SmartWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartWallet.release.xcconfig"; path = "Target Support Files/Pods-SmartWallet/Pods-SmartWallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				26692DA62754458D005E8888 /* AccountItem.swift */,
 				26692DA8275445A0005E8888 /* AccountManager.swift */,
 				26692DAE27546DF9005E8888 /* AccPurchaseManager.swift */,
-				26692DB127546E1B005E8888 /* AccPurchaseItem.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -404,7 +401,6 @@
 				26692DA72754458D005E8888 /* AccountItem.swift in Sources */,
 				9E7C53E8274C791900090E61 /* PurchasesView.swift in Sources */,
 				9E7C53EE274C7A0300090E61 /* StartView.swift in Sources */,
-				26692DB227546E1B005E8888 /* AccPurchaseItem.swift in Sources */,
 				9E7C53B7274C32E500090E61 /* AppDelegate.swift in Sources */,
 				26692DA5275444A3005E8888 /* AccountCell.swift in Sources */,
 				26692D9F27537EFD005E8888 /* AccountsView.swift in Sources */,

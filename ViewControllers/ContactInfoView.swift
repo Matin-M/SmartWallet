@@ -10,15 +10,15 @@ import UIKit
 
 class ContactInfoView: UIViewController {
     
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var phoneField: UITextField!
-    @IBOutlet weak var addressField: UITextField!
-    
+    let sqlManager: SQLManager = SQLManager()
     var name: String?
     var phone: Int?
     var address: String?
     var added: Bool?
-    let sqlManager: SQLManager = SQLManager()
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var phoneField: UITextField!
+    @IBOutlet weak var addressField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
