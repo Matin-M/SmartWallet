@@ -16,14 +16,19 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var purchaseTable: UITableView!
     
     override func viewDidLoad() {
+        print("PurchasesViewLoaded")
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         self.purchaseTable.backgroundColor = UIColor.black
         self.purchaseTable.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.purchaseTable.rowHeight = 90.0
         self.userID = StartView.userID
+    }
+    
+    // Automatically refresh the table when loading view
+    override func viewDidAppear(_ animated: Bool) {
         purchaseManager = PurchaseManager(userID: userID!)
-        
+        self.purchaseTable.reloadData()
     }
     
     @IBAction func addPurchase(_ sender: Any) {
@@ -35,34 +40,20 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.purchaseTable.reloadData()
     }
     
-    
-    // MARK: Segue handling functions
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "AddPurchase") {
-            if let accountView: AddPurchaseView = segue.destination as? AddPurchaseView {
-                
-            }
-        }
-    }
-    
     // Unwind and update the table with the new account
     @IBAction func unwindToPurchases(segue: UIStoryboardSegue) {
         if let source = segue.source as? AddPurchaseView {
             DispatchQueue.main.async {
                 if (source.added == true){
                     // Added succesfully
-                    let add = PurchaseItem(transactionID: source.id, title: source.name, date: source.date, amount: source.amount, category: source.category)
-                    self.purchaseManager?.addItem(newItem: add)
-                    let indexPath = IndexPath(row: (self.purchaseManager?.getCount())! - 1, section: 0)
-                    self.purchaseTable.beginUpdates()
-                    self.purchaseTable.insertRows(at: [indexPath], with: .automatic)
-                    self.purchaseTable.endUpdates()
-                } else if (source.added == false && source.index! == -1) {
+                    self.purchaseManager = PurchaseManager(userID: self.userID!)
+                    self.purchaseTable.reloadData()
+                } else if (source.added == false && source.accountID! == "Error") {
                     // Specified account not found
                     let alert = UIAlertController(title: "Input Error", message: "Specified account not found", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true)
-                } else if (source.added == false && source.index! == -2) {
+                } else if (source.added == false && source.accountID! == "False") {
                     // All forms not filled out
                     let alert = UIAlertController(title: "Input Error", message: "Please fill out all fields", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -83,7 +74,12 @@ class PurchasesView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let purchaseItem = purchaseManager!.getItem(index: indexPath.row)
         cell.purchaseName.text = purchaseItem.title
         cell.purchaseCategory.text = purchaseItem.category
-        cell.purchaseAmount.text = "$\(purchaseItem.amount ?? 0.0)"
+        if (purchaseItem.amount! > 0) {
+            cell.purchaseAmount.text = "$\(String(format: "%.2f", purchaseItem.amount!))"
+        } else {
+            let temp = -1 * purchaseItem.amount!
+            cell.purchaseAmount.text = "- $\(String(format: "%.2f", temp))"
+        }
         cell.purchaseDate.text = purchaseItem.date
         return cell
     }

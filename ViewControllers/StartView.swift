@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-//import PerfectPostgreSQL
 
 class StartView: UIViewController {
     
@@ -24,7 +23,7 @@ class StartView: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        //Validate login informatin, then toggle segue.
+        //Validate login information, then toggle segue.
         if(credentials.validateCredentials(email: usernameField.text ?? "N/A", passwd: passwordField.text ?? "N/A")){
             performSegue(withIdentifier: "login", sender: nil)
         }else{

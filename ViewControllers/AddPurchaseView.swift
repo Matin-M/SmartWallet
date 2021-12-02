@@ -12,16 +12,17 @@ class AddPurchaseView: UIViewController {
     
     private var datePicker: UIDatePicker?
     var accountManager: AccountManager?
-    var selectedAccount: AccountItem?
+    var sqlManager: SQLManager = SQLManager()
     var id: String?
     var name: String?
     var date: String?
     var amount: Double?
     var category: String?
-    var index: Int?
     var added: Bool?
     var accFrom: String?
     var transactionType: Int? = 0 // 0 for withdraw, 1 for deposit
+    var userID: String?
+    var accountID: String?
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var amountField: UITextField!
@@ -45,7 +46,8 @@ class AddPurchaseView: UIViewController {
         
         dateField.inputView = datePicker
         
-        accountManager = AccountManager(userID: "TestUser")
+        self.userID = StartView.userID
+        accountManager = AccountManager(userID: userID!)
     }
     
     @IBAction func transactionType(_ sender: Any) {
@@ -78,7 +80,6 @@ class AddPurchaseView: UIViewController {
     
     @IBAction func addAccount(_ sender: Any) {
         if (nameField.text != "" && amountField.text != "" && categoryField.text != "" && dateField.text != "" && accountField.text != "") {
-            id = "test"// Should be unique for DB
             name = nameField.text!
             amount = Double(amountField.text!)
             if (transactionType == 0) {
@@ -86,18 +87,16 @@ class AddPurchaseView: UIViewController {
             }
             category = categoryField.text!
             date = dateField.text!
-            index = accountManager?.getItemNamed(name: accountField.text!)
-            if (index != -1) {
-                selectedAccount = accountManager?.getItem(index: index!)
+            accountID = sqlManager.getAccountIdFromName(uID: userID!, name: accountField.text!)
+            if (accountID != "Error") {
                 added = true
-                // INSERT INTO Transaction (transactionID, title, date, amount, category) VALUES (id, name, date, amount, category)
-                // INSERT INTO Contains (accountID, transactionID) VALUES (selectedAccount?.accountID, id)
+                sqlManager.insertTransaction(title: name!, date: date!, amount: amount!, category: category!, accountID: accountID!)
             } else {
                 added = false
             }
         } else {
             added = false
-            index = -2
+            accountID = "False"
         }
     }
 }

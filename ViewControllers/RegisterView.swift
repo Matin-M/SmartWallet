@@ -10,15 +10,14 @@ import UIKit
 
 class RegisterView: UIViewController {
     
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    
+    var sqlManager: SQLManager = SQLManager()
     var id: Double?
     var email: String?
     var password: String?
     var added: Bool?
     
-    var sqlManager: SQLManager = SQLManager()
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,6 @@ class RegisterView: UIViewController {
     
     @IBAction func registerButton(_ sender: Any) {
         if (emailField.text != "" && passwordField.text != "") {
-            id = 8 // Should be unique for DB
             email = emailField.text!
             password = passwordField.text!
             added = true
