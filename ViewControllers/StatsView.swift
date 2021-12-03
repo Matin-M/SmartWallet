@@ -31,16 +31,24 @@ class StatsView: UIViewController, ChartViewDelegate{
         
         view.addSubview(pieChart)
         
-        var entries = [ChartDataEntry]()
+        var entries = [PieChartDataEntry]()
+        var counts: [String: Int] = [:]
         
-        for x in 0..<10{
-            entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
+        var index: Int = 0
+        while index < (purchaseManager?.getCount())! {
+            counts[(purchaseManager?.getItem(index: index).category)!] = (counts[(purchaseManager?.getItem(index: index).category)!] ?? 0) + 1
+            index += 1
+        }
+        
+        for (key, value) in counts{
+            entries.append(PieChartDataEntry(value: Double(value), data: "hi"))
         }
         
         let set = PieChartDataSet(entries: entries)
         set.colors = ChartColorTemplates.material()
         let data = PieChartData(dataSet: set)
         pieChart.data = data
+        pieChart.notifyDataSetChanged()
     }
     
 }
