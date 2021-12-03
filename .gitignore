@@ -6,3 +6,4 @@ SmartWallet.xcodeproj/project.pbxproj
 #Cocoapods
 Pods/
 
+*.xcuserstate
